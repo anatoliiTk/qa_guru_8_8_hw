@@ -47,6 +47,7 @@ class Cart:
 
     def __init__(self):
         # По-умолчанию корзина пустая
+        self.product = None
         self.products = {}
 
     def add_product(self, product: Product, buy_count=1):
