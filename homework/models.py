@@ -60,14 +60,16 @@ class Cart:
         else:
             self.products[product] = buy_count
 
-    def remove_product(self, product: Product, remove_count=None):
+    def remove_product(self, product: Product, quantity=None):
         """
         Метод удаления продукта из корзины.
         Если remove_count не передан, то удаляется вся позиция
         Если remove_count больше, чем количество продуктов в позиции, то удаляется вся позиция
         """
-        if product not in self.products:
-            raise ValueError
+        if quantity is None or quantity >= self.products[product]:
+            self.products.pop(product)
+        else:
+            self.products[product] -= quantity
 
     def clear(self):
         self.products.clear()

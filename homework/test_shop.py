@@ -66,13 +66,13 @@ class TestCart:
         cart.remove_product(product, 1)
 
         assert len(cart.products) == 1
-        assert cart.products[product] == 3
+        assert cart.products[product] == 2
 
     def test_cart_remove_product_all_items(self, cart, product):
         cart.add_product(product, 3)
         cart.remove_product(product, 3)
 
-        assert not cart.product
+        assert cart.products == {}
 
     def test_cart_remove_product_more_than_in_cart(self, cart, product):
         cart.add_product(product, 3)
